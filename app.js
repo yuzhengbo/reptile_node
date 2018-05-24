@@ -17,8 +17,11 @@ var server = app.listen(3000, function () {
 var url = 'http://www.lizhi.fm/';
 app.use('/proxy', proxy(url, {
   userResDecorator: function(proxyRes, proxyResData, userReq, userRes) {
-    data = proxyResData.toString('utf8');
-    // return data;
-    return "node使用xpath爬取html会出现问题"
+    xml = proxyResData.toString('utf8');
+    var doc = new dom().parseFromString(xml) 
+    var nodes = xpath.select('//*[@id="allRadioTag"]', doc)
+    data = nodes
+    return data.toString();
+    // return "node使用xpath爬取html会出现问题"
   }
 }))

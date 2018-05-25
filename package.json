@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "depd": "^1.1.2",
     "encodeurl": "^1.0.2",
     "escape-html": "^1.0.3",
@@ -19,10 +20,8 @@
     "ipaddr.js": "^1.7.0",
     "media-typer": "^0.3.0",
     "mime-types": "^2.1.18",
-    "parse5": "^5.0.0",
     "send": "^0.16.2",
     "xmldom": "^0.1.27",
-    "xmlserializer": "^0.6.1",
     "xpath": "^0.0.27"
   },
   "devDependencies": {},

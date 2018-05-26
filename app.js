@@ -18,10 +18,15 @@ app.use('/proxy', proxy(url, {
   userResDecorator: function(proxyRes, proxyResData, userReq, userRes) {
     xml = proxyResData.toString('utf8');
     const $ = cheerio.load(xml);
-    var category = {
-      name: $('#allRadioTag', 'a').text()
+    let cateDom = $('#allRadioTag a')
+    console.log(cateDom[0])
+    let category = []
+    for (let i=0; i<cateDom.length - 1; i++) {
+      let item = {}
+      item.name = cateDom[i].firstChild.data
+      item.href = cateDom[i].attribs.href
+      category.push(item)
     }
-    console.log(category);
     data = category;
     return data
     // var doc = new dom().parseFromString(xml) 

@@ -4,6 +4,13 @@ var xpath = require('xpath');
 var dom = require('xmldom').DOMParser
 var cheerio = require('cheerio');
 var app = express();
+
+app.all('*', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  next();
+})
+
 app.get('/', function (req, res) {
   res.send('hello world');
 })
@@ -36,3 +43,13 @@ app.use('/proxy', proxy(url, {
     // return "node使用xpath爬取html会出现问题"
   }
 }))
+
+app.get('/gets', function (req, res) {
+  let item = {
+    name: 'lht',
+    age: 25,
+    sex: 1,
+    job: '前端工程师'
+  }
+  res.send(item);
+})

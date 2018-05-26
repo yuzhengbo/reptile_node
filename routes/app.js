@@ -4,7 +4,6 @@ var xpath = require('xpath');
 var dom = require('xmldom').DOMParser
 var cheerio = require('cheerio');
 var app = express();
-
 app.all('*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");

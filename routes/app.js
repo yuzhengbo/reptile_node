@@ -50,5 +50,6 @@ app.get('/gets', function (req, res) {
     sex: 1,
     job: '前端工程师'
   }
-  res.send(item);
+  // 返回错误
+  res.status(500).send('Something broke!');
 })
